@@ -1,0 +1,15 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "My own node scripts for simply doing some simple tasks",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {},
+  "keywords": ["productivity", "simple"],
+  "author": "Farid Bekran",
+  "license": "MIT",
+  "dependencies": {
+    "clipboardy": "^3.0.0",
+    "generate-password": "^1.7.0"
+  }
+}
