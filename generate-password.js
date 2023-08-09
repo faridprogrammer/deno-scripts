@@ -11,6 +11,8 @@ let password = passwordGenerator.generate({
 
 console.log(`Password: ${password}`);
 
-clipboard.write(password);
+await clipboard.write(password);
 
-console.log(`Also copied to clipboard...`);
+console.log(`Also copied to clipboard...`)
+
+
