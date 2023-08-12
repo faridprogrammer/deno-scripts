@@ -1,0 +1,9 @@
+dir C:/Users/f.bekran/src/sabadyar-v1/Projects/Application/Sources
+search <AssemblyVersion>3.163.22</AssemblyVersion> -replace <AssemblyVersion>3.163.23</AssemblyVersion>
+search <FileVersion>3.163.22</FileVersion> -replace <FileVersion>3.163.23</FileVersion>
+dir C:/Users/f.bekran/src/sabadyar-v1/Build
+search <Version Condition="'$(Version)' == ''">3.163.22</Version> -replace <Version Condition="'$(Version)' == ''">3.163.23</Version>
+add-line      <UpdateFiles Include="$(BuildDatabaseSourcesPath)\Updates\v3.163.22-To-v3.163.23.sql" /> -after <UpdateFiles Include="$(BuildDatabaseSourcesPath)\Updates\v3.163.21-To-v3.163.22.sql" />
+dir C:/Users/f.bekran/src/sabadyar-v1/Projects/Application/Sources/Sabadyar.Web.Site
+search [assembly: AssemblyVersion("3.163.22")] -replace [assembly: AssemblyVersion("3.163.23")]
+add-file C:/Users/f.bekran/src/sabadyar-v1/Projects/Database/Sources/Updates/v3.163.22-To-v3.163.23.sql -withcontent dbscript
