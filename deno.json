@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "commander": "deno run --allow-read --allow-write ./commander/commander.ts",
+    "generate-password": "deno run --allow-run ./generate-password/generate-password.ts"
+  }
+}
