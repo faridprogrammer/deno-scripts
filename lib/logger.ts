@@ -1,5 +1,6 @@
-import { fs } from "https://deno.land/std@0.170.0/node/internal_binding/constants.ts";
 import { EOL } from "https://deno.land/std@0.206.0/fs/eol.ts";
+
+const platformEOL = Deno.build.os === "windows" ? EOL.CRLF : EOL.LF;
 
 let diag = false;
 let prefix = "";
@@ -10,20 +11,20 @@ if (Deno.args.includes("-diag")) {
 }
 class Logger {
   logSuccess(message: string) {
-    console.log(`%c${message}${EOL.LF}`, "color: green");
+    console.log(`%c${message}${platformEOL}`, "color: green");
   }
 
   logInfo(message: string) {
     if (!diag) return;
-    console.log(`%c${prefix}${message}${EOL.LF}`, "color: blue");
+    console.log(`%c${prefix}${message}${platformEOL}`, "color: blue");
   }
 
   logWarning(message: string) {
-    console.log(`%c${message}${EOL.LF}`, "color: yellow");
+    console.log(`%c${message}${platformEOL}`, "color: yellow");
   }
 
   logError(message: string) {
-    console.log(`%c${message}${EOL.LF}`, "color: red");
+    console.log(`%c${message}${platformEOL}`, "color: red");
   }
 }
 
