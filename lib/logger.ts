@@ -1,6 +1,4 @@
-import { EOL } from "https://deno.land/std@0.206.0/fs/eol.ts";
-
-const platformEOL = Deno.build.os === "windows" ? EOL.CRLF : EOL.LF;
+import { platformEOL } from "./utility.ts";
 
 let diag = false;
 let prefix = "";

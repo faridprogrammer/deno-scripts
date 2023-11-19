@@ -5,7 +5,7 @@ import { fileURLToPath } from "https://deno.land/std@0.170.0/node/url.ts";
 import getFiles from "https://deno.land/x/getfiles@v1.0.0/mod.ts";
 import * as fs from "https://deno.land/std@0.206.0/fs/mod.ts";
 import { logger } from "../lib/logger.ts";
-import { util } from "../lib/utility.ts";
+import { platformEOL, util } from "../lib/utility.ts";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -117,8 +117,8 @@ function excecuteCommand(command: string | undefined) {
               );
               continue;
             }
-            const secondPart = lineToAdd + fs.EOL.LF + splits[1];
-            const result = splits[0] + lineToSearch + fs.EOL.LF + secondPart;
+            const secondPart = lineToAdd + platformEOL + splits[1];
+            const result = splits[0] + lineToSearch + platformEOL + secondPart;
             Deno.writeTextFileSync(file.path, result);
           } catch (e) {
             logger.logError(`Error in add line content: ${file}, ${e}`);
